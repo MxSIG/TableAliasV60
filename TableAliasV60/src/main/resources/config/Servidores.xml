@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<servidores>
+
+    <servidor>
+		<alias></alias>
+		<ip></ip>
+		<puerto></puerto>
+		<usuario></usuario>
+		<password></password>
+		<url>jdbc:postgresql://%s:%s/%s</url>
+		<driverclass>org.postgresql.Driver</driverclass>
+		<validationquery>select version()</validationquery>
+	</servidor>
+</servidores>

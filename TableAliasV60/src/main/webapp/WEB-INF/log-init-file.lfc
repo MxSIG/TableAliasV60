@@ -1,0 +1,20 @@
+//Example log4j Configuration File 
+
+log4j.logger.tablealias.logging.BusquedaLogRecord = DEBUG, X
+log4j.logger.tablealias.logging.BusquedaNoExitosaLogRecord = DEBUG, X2
+
+#set the appender named X to be a console appender
+log4j.appender.X=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.X.File=geoaccess_log.log
+
+#set the layout for the appender X
+log4j.appender.X.layout=org.apache.log4j.PatternLayout
+log4j.appender.X.layout.conversionPattern=%d{yyyyMMddHHmmssSSS}:%m%n
+
+
+log4j.appender.X2=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.X2.File=geoerror_log.log
+
+#set the layout for the appender X2
+log4j.appender.X2.layout=org.apache.log4j.PatternLayout
+log4j.appender.X2.layout.conversionPattern=%d{yyyyMMddHHmmssSSS}:%m%n

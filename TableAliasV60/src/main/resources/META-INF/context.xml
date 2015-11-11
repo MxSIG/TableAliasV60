@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/TableAliasMap">
+	<Realm className="org.apache.catalina.realm.JDBCRealm"
+		connectionName="" connectionPassword=""
+		connectionURL="jdbc:postgresql://"
+		debug="99" driverName="org.postgresql.Driver" roleNameCol="role_name"
+		userCredCol="user_pass" userNameCol="user_name" userRoleTable="security.user_roles"
+		userTable="security.users" />
+</Context>

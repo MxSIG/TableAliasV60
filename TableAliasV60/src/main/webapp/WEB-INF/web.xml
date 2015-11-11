@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>Core del Mapa Digital de Mexico v6.0</display-name>
+    <context-param>
+        <param-name>loginitfile</param-name>
+        <param-value>WEB-INF/log-init-file.lfc</param-value>
+    </context-param>
+    <context-param>
+        <param-name>proyname.param</param-name>
+        <param-value>proyName</param-value>
+    </context-param>
+    <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>			
+            classpath:META-INF/spring/applicationContext.xml            
+            /WEB-INF/spring/web-context.xml              
+        </param-value>
+	</context-param>
+	<filter>
+		<filter-name>corsFilter</filter-name>
+		<filter-class>tablealias.filters.CORSFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>corsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>	
+	
+    <filter>
+        <filter-name>StatisticianFilter</filter-name>
+        <filter-class>tablealias.filters.StatisticianFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>StatisticianFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+   <!-- <filter>
+    	<filter-name>GzipFilter</filter-name>
+    	<filter-class>tablealias.filters.GZipServletFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+	
+    <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+    	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	
+    <servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>	
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+    <!-- <servlet>
+        <servlet-name>Consulta</servlet-name>
+        <servlet-class>tablealias.controlador.Consulta</servlet-class>
+    </servlet> -->
+    <servlet>
+        <servlet-name>ReloadData</servlet-name>
+        <servlet-class>tablealias.controlador.ReloadData</servlet-class>
+    </servlet>
+   <!--  <servlet>
+        <servlet-name>Busqueda</servlet-name>
+        <servlet-class>tablealias.controlador.Busqueda</servlet-class>
+    </servlet> -->
+    <!-- <servlet>
+        <servlet-name>Buffer</servlet-name>
+        <servlet-class>tablealias.controlador.Buffer</servlet-class>
+    </servlet> -->
+    <servlet>
+        <servlet-name>EdoCiudad</servlet-name>
+        <servlet-class>tablealias.controlador.EdoCiudad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscablesIdentificables</servlet-name>
+        <servlet-class>tablealias.controlador.BuscablesIdentificables</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetDinue</servlet-name>
+        <servlet-class>tablealias.controlador.GetDinue</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetGeo</servlet-name>
+        <servlet-class>tablealias.controlador.GetGeo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetEco</servlet-name>
+        <servlet-class>tablealias.controlador.GetEco</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchDENUE</servlet-name>
+        <servlet-class>tablealias.controlador.SearchDENUE</servlet-class>
+    </servlet>
+    <!--  <servlet>
+        <servlet-name>ActividadesAreas</servlet-name>
+        <servlet-class>tablealias.controlador.ActividadesAreas</servlet-class>
+    </servlet> -->
+    <servlet>
+        <servlet-name>ParamConsulta</servlet-name>
+        <servlet-class>tablealias.controlador.ParamConsulta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Tematizacion</servlet-name>
+        <servlet-class>tablealias.controlador.Tematizacion</servlet-class>
+    </servlet>
+    <!-- <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>mx.org.inegi.geografia.sistemas.dept.web.tablealias.ws.client.SearchWSClient</servlet-class>
+    </servlet> -->
+    <servlet>
+        <servlet-name>FiltroAgropecuario</servlet-name>
+        <servlet-class>tablealias.controlador.FiltroAgrope</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Graficador</servlet-name>
+        <servlet-class>tablealias.controlador.Graficador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SetGeometry</servlet-name>
+        <servlet-class>tablealias.controlador.SetGeometry</servlet-class>
+    </servlet>
+    <!-- <servlet>
+        <servlet-name>SetComplete</servlet-name>
+        <servlet-class>tablealias.controlador.SetComplete</servlet-class>
+        <init-param>
+            <param-name>campo</param-name>
+            <param-value>estatus</param-value>
+        </init-param>
+    </servlet> -->
+    <servlet>
+        <servlet-name>SetProccessComplete</servlet-name>
+        <servlet-class>tablealias.controlador.SetComplete</servlet-class>
+        <init-param>
+            <param-name>campo</param-name>
+            <param-value>estatus_proceso</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>BorrarBufferCE</servlet-name>
+        <servlet-class>tablealias.controlador.BorrarBufferCE</servlet-class>
+    </servlet>
+    <!-- <servlet-mapping>
+        <servlet-name>Consulta</servlet-name>
+        <url-pattern>/consulta.do</url-pattern>
+    </servlet-mapping> -->
+    <servlet-mapping>
+        <servlet-name>ReloadData</servlet-name>
+        <url-pattern>/reloadData.do</url-pattern>
+    </servlet-mapping>
+    <!-- <servlet-mapping>
+        <servlet-name>Busqueda</servlet-name>
+        <url-pattern>/busqueda.do</url-pattern>
+    </servlet-mapping> -->
+    <!-- <servlet-mapping>
+        <servlet-name>Buffer</servlet-name>
+        <url-pattern>/buffer.do</url-pattern>
+    </servlet-mapping> -->
+    <servlet-mapping>
+        <servlet-name>EdoCiudad</servlet-name>
+        <url-pattern>/edoCiudad.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscablesIdentificables</servlet-name>
+        <url-pattern>/buscablesIdentificables.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetDinue</servlet-name>
+        <url-pattern>/getDinue.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetGeo</servlet-name>
+        <url-pattern>/getGeo.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetEco</servlet-name>
+        <url-pattern>/getEco.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchDENUE</servlet-name>
+        <url-pattern>/searchDenue.do</url-pattern>
+    </servlet-mapping>
+    <!--  <servlet-mapping>
+        <servlet-name>ActividadesAreas</servlet-name>
+        <url-pattern>/actividadesAreas.do</url-pattern>
+    </servlet-mapping> -->
+    <servlet-mapping>
+        <servlet-name>ParamConsulta</servlet-name>
+        <url-pattern>/paramConsulta.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Tematizacion</servlet-name>
+        <url-pattern>/tema.do</url-pattern>
+    </servlet-mapping>
+    <!-- <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/searchws.do</url-pattern>
+    </servlet-mapping> -->
+    <servlet-mapping>
+        <servlet-name>FiltroAgropecuario</servlet-name>
+        <url-pattern>/filtroAgro.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Graficador</servlet-name>
+        <url-pattern>/graficador.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SetGeometry</servlet-name>
+        <url-pattern>/SetGeometry.do</url-pattern>
+    </servlet-mapping>
+    <!-- <servlet-mapping>
+        <servlet-name>SetComplete</servlet-name>
+        <url-pattern>/complete.do</url-pattern>
+    </servlet-mapping> -->
+    <servlet-mapping>
+        <servlet-name>SetProccessComplete</servlet-name>
+        <url-pattern>/completeProccess.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorrarBufferCE</servlet-name>
+        <url-pattern>/borrarBufferCE.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <!--  <env-entry>
+        <env-entry-name>AliasDataFileName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>AliasData.xml</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <env-entry-name>ServersDataFileName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Servidores.xml</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <env-entry-name>StopWordsFileName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>spanishWords.txt</env-entry-value>
+    </env-entry> -->
+    <welcome-file-list>
+        <welcome-file>memory_usage.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>SecurePages</web-resource-name>
+            <description>Security constraint for resources in the secure directory</description>
+            <url-pattern>/reloadData.do</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>DIGEST</auth-method>
+    </login-config>
+    <security-role>
+        <role-name>manager</role-name>
+    </security-role> -->
+</web-app>

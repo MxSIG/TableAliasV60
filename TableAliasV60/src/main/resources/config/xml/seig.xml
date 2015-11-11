@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tablas>
+    <tabla buscable="true" identificable="true" buffer="true" aliasusuario="Entidad federativa" proyectos="mdm6">
+        <servidor>servidorsote</servidor>
+        <database>mdm6data</database>
+        <esquema>mgm</esquema>
+        <nombre>estados</nombre>
+        <alias>c100</alias>
+        <nombre_geometria>the_geom</nombre_geometria>
+        <numero_proyeccion>900913</numero_proyeccion>	
+        <identifica_resolucion_min>0.2985821421883884</identifica_resolucion_min>
+        <identifica_resolucion_max>4891.969809375</identifica_resolucion_max>			
+        <campos>
+            <campo identificable="true">
+                <nombre>gid</nombre>
+                <alias>ID</alias>
+            </campo>
+            <campo>
+                <nombre>cve_ent</nombre>
+                <alias>Clave Geoestadística</alias>
+            </campo>
+            <campo identificable="true">
+                <nombre>nom_ent</nombre>
+                <alias>nombre</alias>
+            </campo>
+			<campo>
+				<nombre>tipo</nombre>
+				<alias>Tipo</alias>
+			</campo>
+			<campo>
+				<nombre>locacion</nombre>
+				<alias>locacion</alias>
+			</campo>
+			<campo>
+				<nombre>coord_merc</nombre>
+				<alias>coord_merc</alias>
+			</campo>
+			<campo>
+				<nombre>tabla</nombre>
+				<alias>tabla</alias>
+			</campo>
+			<campo>
+				<nombre>gid</nombre>
+				<alias>gid</alias>
+			</campo>
+			<campo>
+				<nombre>busqueda</nombre>
+				<alias>busqueda</alias>
+			</campo>			
+            <campo>
+                <nombre>gid</nombre>
+                <alias>buffer</alias>
+            </campo>
+<!-- si campo no especifica atributos de busquedaDisplay y consultaDisplay, 
+ambos son true por default -->
+            <campo busquedaDisplay="false" consultaDisplay="true">
+                <functions>
+                    <function order="2">
+                        <functionname>ST_AsText</functionname>
+                    </function>
+                    <function order="1">
+                        <functionname>ST_Envelope</functionname>
+                    </function>
+                </functions>
+                <nombre>the_geom</nombre>
+                <alias>ubicacion</alias>
+            </campo>
+			<campo busquedaDisplay="false" consultaDisplay="true">
+                             <functions>
+                                <function order="2">
+                                    <functionname>ST_AsText</functionname>
+                                </function>
+                                <function order="1">
+                                      <functionname>ST_PointOnSurface</functionname>
+                                </function>
+                             </functions>
+                             <nombre>the_geom</nombre>
+                             <alias>coordenada</alias>
+                        </campo>			
+        </campos>
+        <busqueda>
+<!-- el primer campo segun definido aqui es el obligatorio -->
+            <campoBusqueda tipo="tsearch">
+                <nombre>spvector</nombre>
+            </campoBusqueda>
+        </busqueda>
+        <orderby>
+            <field>cve_ent</field>
+        </orderby>
+    </tabla>
+
+    <tabla buscable="true" identificable="true" buffer="true" aliasusuario="Municipio/Delegación" proyectos="mdm6">
+        <servidor>servidorsote</servidor>
+        <database>mdm6data</database>
+        <esquema>mgm</esquema>
+        <nombre>municipios</nombre>
+        <alias>c101</alias>
+        <nombre_geometria>the_geom</nombre_geometria>
+        <numero_proyeccion>900913</numero_proyeccion>
+        <identifica_resolucion_min>0.2985821421883884</identifica_resolucion_min>
+        <identifica_resolucion_max>4891.969809375</identifica_resolucion_max>			
+        <campos>
+            <campo identificable="true">
+                <nombre>gid</nombre>
+                <alias>ID</alias>
+            </campo>
+            <campo>
+                <nombre>clavegeo</nombre>
+                <alias>Clave geoestadística</alias>
+            </campo>
+            <campo identificable="true">
+                <nombre>nom_mun</nombre>
+                <alias>nombre</alias>
+            </campo>
+			<campo>
+				<nombre>tipo</nombre>
+				<alias>Tipo</alias>
+			</campo>
+			<campo>
+				<nombre>locacion</nombre>
+				<alias>locacion</alias>
+			</campo>
+			<campo>
+				<nombre>coord_merc</nombre>
+				<alias>coord_merc</alias>
+			</campo>
+			<campo>
+				<nombre>tabla</nombre>
+				<alias>tabla</alias>
+			</campo>
+			<campo>
+				<nombre>gid</nombre>
+				<alias>gid</alias>
+			</campo>
+			<campo>
+				<nombre>busqueda</nombre>
+				<alias>busqueda</alias>
+			</campo>			
+            <campo>
+                <nombre>nom_ent</nombre>
+                <alias>referencia</alias>
+            </campo>
+            <campo>
+                <nombre>gid</nombre>
+                <alias>buffer</alias>
+            </campo>
+<!--<campo predato="II Conteo de Pob. y Viv.|/CubexConnector/generaJson.do?servicio=infoproyecto&amp;proyecto=1&amp;geograficaE="> 
+<nombre>clavegeo</nombre> <alias>destadisticos</alias> </campo> <campo predato="Natalidad 
+1985-2005|/CubexConnector/generaJson.do?servicio=infoproyecto&amp;proyecto=3&amp;geograficaE="> 
+<nombre>clavegeo</nombre> <alias>destadisticos</alias> </campo> <campo predato="Transporte|/CubexConnector/generaJson.do?servicio=infoproyecto&amp;proyecto=4&amp;geograficaE="> 
+<nombre>clavegeo</nombre> <alias>destadisticos</alias> </campo> -->
+            <campo busquedaDisplay="false" consultaDisplay="true">
+                <functions>
+                    <function order="2">
+                        <functionname>ST_AsText</functionname>
+                    </function>
+                    <function order="1">
+                        <functionname>ST_Envelope</functionname>
+                    </function>
+                </functions>
+                <nombre>the_geom</nombre>
+                <alias>ubicacion</alias>
+            </campo>
+            <campo busquedaDisplay="false" consultaDisplay="true">
+                <functions>
+                    <function order="2">
+                        <functionname>ST_AsText</functionname>
+                    </function>
+                    <function order="1">
+                        <functionname>ST_PointOnSurface</functionname>
+                    </function>
+                </functions>
+                <nombre>the_geom</nombre>
+                <alias>coordenada</alias>
+            </campo>  
+        </campos>
+        <busqueda>
+<!-- el primer campo segun definido aqui es el obligatorio -->
+            <campoBusqueda tipo="tsearch">
+                <nombre>spvector</nombre>
+            </campoBusqueda>
+        </busqueda>
+    </tabla>
+	
+  
+    <tabla buscable="false" identificable="false" buffer="false" aliasusuario="Geometria" proyectos="mdm6,seig">
+        <servidor>servidorsote</servidor>
+        <database>mdm6data</database>
+        <esquema>control</esquema>
+        <nombre>mibuffer</nombre>
+        <alias>geometrias</alias>
+        <nombre_geometria>the_geom</nombre_geometria>
+        <numero_proyeccion>900913</numero_proyeccion>
+        <identifica_resolucion_min>0.2985821421883884</identifica_resolucion_min>
+        <identifica_resolucion_max>4891.969809375</identifica_resolucion_max>			
+        <campos>
+            <campo>
+                <nombre>gid</nombre>
+                <alias>ID</alias>
+            </campo>
+			<!-- si campo no especifica atributos de busquedaDisplay y consultaDisplay, 
+				ambos son true por default -->
+            <campo busquedaDisplay="true" consultaDisplay="false">
+                <nombre>fechahora</nombre>
+                <alias>Fecha</alias>
+            </campo>
+            <campo busquedaDisplay="true" consultaDisplay="false">
+                <nombre>the_geom</nombre>
+                <alias>Geometry</alias>
+            </campo>
+        </campos>
+    </tabla>	
+    <tabla buscable="false" identificable="false"  aliasusuario="Geolocalizador" proyectos="mdm6">
+        <servidor>servidorsote</servidor>
+        <database>mdm6data</database>
+        <esquema>buscador</esquema>
+        <nombre>geolocator</nombre>
+        <alias>geolocator</alias>
+        <nombre_geometria>the_geom</nombre_geometria>
+        <numero_proyeccion>900913</numero_proyeccion>
+        <identifica_resolucion_min>0.2985821421883884</identifica_resolucion_min>
+        <identifica_resolucion_max>4891.969809375</identifica_resolucion_max>			
+        <campos>
+            <campo>
+                <nombre>gid</nombre>
+                <alias>id</alias>
+            </campo>
+            <campo>
+                <nombre>gid</nombre>
+                <alias>gid</alias>
+            </campo>			
+            <campo>
+                <nombre>tipo</nombre>
+                <alias>Tipo</alias>
+            </campo>
+            <campo>
+                <nombre>nombre</nombre>
+                <alias>Nombre</alias>
+            </campo>
+            <campo>
+                <nombre>tabla</nombre>
+                <alias>Tabla</alias>
+            </campo>			
+			<campo>
+				<nombre>locacion</nombre>
+				<alias>locacion</alias>
+			</campo>
+			<campo>
+				<nombre>coord_merc</nombre>
+				<alias>coord_merc</alias>
+			</campo>			
+			<campo>
+				<nombre>busqueda</nombre>
+				<alias>busqueda</alias>
+			</campo>						
+            <campo busquedaDisplay="true" consultaDisplay="false">
+                <functions>
+                    <function order="2">
+                        <functionname>ST_AsText</functionname>
+                    </function>
+                    <function order="1">
+                        <functionname>ST_Envelope</functionname>
+                    </function>
+                </functions>
+                <nombre>the_geom</nombre>
+                <alias>ubicacion</alias>
+            </campo>
+        </campos>
+        <busqueda>
+            <!-- el primer campo segun definido aqui es el obligatorio   dicc="inegi" cfunction="convierte3"-->
+            <campoBusqueda tipo="tsearch" dicc="spanish" cfunction="convierte3" >
+                <nombre>spvector</nombre>
+            </campoBusqueda>
+            <campoBusqueda tipo="tsearch" dicc="spanish" cfunction="convierte3" >
+                <nombre>spvectorref</nombre>
+            </campoBusqueda>    
+        </busqueda>
+    </tabla>	
+</tablas>
+	
+

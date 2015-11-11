@@ -1,0 +1,6 @@
+/.settings
+/target
+/.classpath
+/.project
+/geoaccess_log.log
+/geoerror_log.log
